@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import theme from "components/theme";
+import { DialogProvider } from "contexts/DialogContext";
+import { StoreProvider } from "contexts/StoreContext";
+import { lazy } from "react";
+import { Route, Routes } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+
+const NewsPage = lazy(() => import("pages/NewsPage"));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <StoreProvider>
+        <DialogProvider>
+          <Routes>
+            <Route path="" element={<NewsPage />} />
+          </Routes>
+        </DialogProvider>
+      </StoreProvider>
+    </ThemeProvider>
   );
 }
 
