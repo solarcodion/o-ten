@@ -2,7 +2,7 @@ export const SIZE = {
   mobileS: 320,
   mobileM: 375,
   mobile: 800,
-  tablet: 1080,
+  tablet: 1023,
 };
 
 export const device = {

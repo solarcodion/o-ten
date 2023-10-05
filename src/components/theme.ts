@@ -5,6 +5,7 @@ export const theme = {
     bg: "#0b0b18",
     secondaryBg: "#fdf84c",
     white: "#fff",
+    cyan: "#25fcff",
   },
 };
 export default theme;

@@ -1,5 +1,7 @@
 import { styled } from "styled-components";
 import { FlexBox } from "./basic/Box";
+import { SOCIAL_LINKS } from "../constants";
+import useStore from "hooks/useStore";
 
 const Root = styled.div`
   position: fixed;
@@ -20,10 +22,14 @@ const Link = styled.a`
 `;
 
 const Footer = () => {
+  const { store } = useStore();
+
+  if (store.isMobile) return null;
+
   return (
     <Root>
       <FlexBox alignItems="center" gap="50px">
-        {LINKS.map((link) => {
+        {SOCIAL_LINKS.map((link) => {
           return (
             <Link href={link.url} key={link.url} target="_blank">
               {link.label}
@@ -36,22 +42,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-const LINKS = [
-  {
-    label: "Twitter",
-    url: "https://twitter.com/",
-  },
-  {
-    label: "Facebook",
-    url: "https://www.facebook.com/",
-  },
-  {
-    label: "Instagram",
-    url: "https://www.instagram.com/",
-  },
-  {
-    label: "LinkedIn",
-    url: "https://www.linkedin.com/",
-  },
-];

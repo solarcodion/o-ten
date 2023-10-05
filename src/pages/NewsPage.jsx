@@ -5,11 +5,16 @@ import img2 from "assets/images/placeholder-group.jpg";
 import img3 from "assets/images/placeholder-shoe-casasport.jpg";
 import img4 from "assets/images/placeholder-shoes-dior.jpg";
 import YellowPane from "components/YellowPane";
+import { device } from "utils/device";
 
 const Root = styled.div`
   padding: 130px 80px;
   display: flex;
   flex-direction: column;
+
+  @media ${device.tablet} {
+    padding: 74px 28px;
+  }
 `;
 
 const Gallery = styled.div`
@@ -18,6 +23,12 @@ const Gallery = styled.div`
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(4, 1fr);
   flex-grow: 1;
+
+  @media ${device.tablet} {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
 
   .gallery-1 {
     grid-area: 1 / 1 / span 2 / span 2;
@@ -58,6 +69,31 @@ const Gallery = styled.div`
     display: flex;
     align-items: flex-end;
     padding: 36px 15% 36px 36px;
+    position: relative;
+
+    @media ${device.tablet} {
+      padding: 12px;
+      font-size: 18px;
+      height: 300px;
+    }
+
+    &:after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: ${(props) => props.theme.colors.secondaryBg};
+      opacity: 20%;
+      transform: scaleX(0);
+      transform-origin: 100% 50%;
+    }
+    &:hover:after {
+      transform: scaleX(1);
+      transform-origin: 0 50%;
+      transition: transform 175ms ease-in-out;
+    }
   }
 `;
 
@@ -67,11 +103,18 @@ const GridRow = styled.div`
   grid-template-columns: repeat(3, 1fr);
   margin-top: 14px;
   min-height: 90px;
+
+  @media ${device.tablet} {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
 `;
 
 const StyledYellowPane = styled(YellowPane)`
   text-transform: uppercase;
   font-weight: 500;
+  padding: 12px;
 `;
 
 const NewsBadge = styled(YellowPane)`

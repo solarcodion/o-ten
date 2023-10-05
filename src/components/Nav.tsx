@@ -3,6 +3,11 @@ import { FlexBox } from "./basic/Box";
 import logoImg from "assets/images/logo/white/o-ten o.svg";
 import menuImg from "assets/images/menu-2.svg";
 import { useLocation } from "react-router-dom";
+import { MENU_ITEMS } from "../constants";
+import { useCallback, useState } from "react";
+import FullscreenNav from "./FullscreenNav";
+import useStore from "hooks/useStore";
+import { device } from "utils/device";
 
 const Root = styled.div`
   padding: 50px 40px;
@@ -10,10 +15,20 @@ const Root = styled.div`
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 9999;
+  background-color: ${(props) => props.theme.colors.bg};
+
+  @media ${device.tablet} {
+    padding: 24px 26px;
+  }
 `;
 
 const Logo = styled.img`
   height: 30px;
+
+  @media ${device.tablet} {
+    height: 22px;
+  }
   &:hover {
     cursor: pointer;
   }
@@ -64,56 +79,44 @@ const Link = styled.a`
 
 const Nav = () => {
   const location = useLocation();
+  const [showFull, setShowFull] = useState<boolean>(false);
+  const { store } = useStore();
+
+  const handleMenu = useCallback(() => {
+    setShowFull(true);
+  }, []);
+
   return (
     <Root>
       <FlexBox justifyContent="space-between" alignItems="center">
         <Logo src={logoImg} alt="logo" />
         <FlexBox alignItems="center">
-          <FlexBox alignItems="center" gap="20px">
-            {LINKS.map((link) => {
-              return (
-                <Link
-                  key={link.url}
-                  href={link.url}
-                  className={link.url === location.pathname ? "active" : ""}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </FlexBox>
-          <MenuIcon src={menuImg} alt="menu" style={{ marginLeft: "100px" }} />
+          {!store.isMobile && (
+            <FlexBox alignItems="center" gap="20px">
+              {MENU_ITEMS.map((link) => {
+                return (
+                  <Link
+                    key={link.url}
+                    href={link.url}
+                    className={link.url === location.pathname ? "active" : ""}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
+            </FlexBox>
+          )}
+          <MenuIcon
+            src={menuImg}
+            alt="menu"
+            style={{ marginLeft: "100px" }}
+            onClick={handleMenu}
+          />
         </FlexBox>
       </FlexBox>
+      {showFull && <FullscreenNav onClose={() => setShowFull(false)} />}
     </Root>
   );
 };
 
 export default Nav;
-
-const LINKS = [
-  {
-    label: "News",
-    url: "/",
-  },
-  {
-    label: "About",
-    url: "/about",
-  },
-  {
-    label: "Sneaker",
-    url: "/sneaker",
-  },
-  {
-    label: "Mint",
-    url: "/mint",
-  },
-  {
-    label: "Roadmap",
-    url: "/roadmap",
-  },
-  {
-    label: "Press",
-    url: "/press",
-  },
-];
