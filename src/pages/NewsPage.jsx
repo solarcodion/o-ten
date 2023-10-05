@@ -24,6 +24,7 @@ const Gallery = styled.div`
     background-image: url(${img1});
     background-size: cover;
     background-position: center;
+    font-size: 40px;
   }
 
   .gallery-2 {
@@ -31,6 +32,7 @@ const Gallery = styled.div`
     background-image: url(${img2});
     background-size: cover;
     background-position: center;
+    font-size: 32px;
   }
 
   .gallery-3 {
@@ -38,6 +40,7 @@ const Gallery = styled.div`
     background-image: url(${img3});
     background-size: cover;
     background-position: center;
+    font-size: 20px;
   }
 
   .gallery-4 {
@@ -45,6 +48,16 @@ const Gallery = styled.div`
     background-image: url(${img4});
     background-size: cover;
     background-position: center;
+    font-size: 20px;
+  }
+
+  .gallery-1,
+  .gallery-2,
+  .gallery-3,
+  .gallery-4 {
+    display: flex;
+    align-items: flex-end;
+    padding: 36px 15% 36px 36px;
   }
 `;
 
@@ -79,20 +92,34 @@ const Container = styled.div`
   position: relative;
 `;
 
+const Text = styled.div`
+  color: ${(props) => props.theme.colors.white};
+  font-weight: 600;
+`;
+
 const NewsPage = () => {
   return (
     <Root className="full">
       <Container>
         <NewsBadge>Latest news</NewsBadge>
         <Gallery>
-          <div className="gallery-1"></div>
-          <div className="gallery-2"></div>
-          <div className="gallery-3"></div>
-          <div className="gallery-4"></div>
+          <div className="gallery-1">
+            <Text>The latest news article preview always goes here</Text>
+          </div>
+          <div className="gallery-2">
+            <Text>The second newest article is located in this spot</Text>
+          </div>
+          <div className="gallery-3">
+            <Text>Older articles are shown in the smaller fields</Text>
+          </div>
+          <div className="gallery-4">
+            <Text>Older articles are shown in the smaller fields</Text>
+          </div>
         </Gallery>
         <GridRow>
           <StyledYellowPane>
-            TIME UNTIL MINT: 100 : 20 : 18 : 42
+            TIME UNTIL MINT: <span style={{ marginLeft: "20px" }}></span>100 :
+            20 : 18 : 42
           </StyledYellowPane>
           <StyledYellowPane>An ethereum-based project</StyledYellowPane>
           <StyledYellowPane>Older news articles</StyledYellowPane>

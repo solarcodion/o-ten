@@ -52,11 +52,18 @@ const Link = styled.a`
     border-bottom: solid 1px #fff;
     transition: transform 275ms ease-in-out;
   }
+
+  &.active:after {
+    transform: scaleX(1);
+    transform-origin: 0 50%;
+    color: #fff;
+    border-bottom: solid 1px #fff;
+    transition: transform 275ms ease-in-out;
+  }
 `;
 
 const Nav = () => {
   const location = useLocation();
-  console.log("@3", location);
   return (
     <Root>
       <FlexBox justifyContent="space-between" alignItems="center">
@@ -65,7 +72,11 @@ const Nav = () => {
           <FlexBox alignItems="center" gap="20px">
             {LINKS.map((link) => {
               return (
-                <Link key={link.url} href={link.url}>
+                <Link
+                  key={link.url}
+                  href={link.url}
+                  className={link.url === location.pathname ? "active" : ""}
+                >
                   {link.label}
                 </Link>
               );
