@@ -7,7 +7,7 @@ const Root = styled.div`
   min-height: 100vh;
 `;
 
-export const WithAppbar = (Component: any, style: CSS.Properties) => {
+export const WithAppbar = (Component: any, style?: CSS.Properties) => {
   const hoc = (props: any) => {
     return (
       <Root style={style}>
