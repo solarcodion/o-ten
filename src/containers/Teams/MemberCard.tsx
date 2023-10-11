@@ -1,4 +1,3 @@
-import { Text } from "components/basic";
 import { Box, FlexBox } from "components/basic/Box";
 import { useState } from "react";
 import { styled } from "styled-components";
