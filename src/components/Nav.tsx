@@ -86,6 +86,19 @@ const Nav = () => {
     setShowFull(true);
   }, []);
 
+  const isActive = useCallback(
+    (url: string) => {
+      console.log("23", url, location.pathname);
+      if (!url) return false;
+      if (url === "/") {
+        if (location.pathname === "/") return true;
+        return false;
+      }
+      return location.pathname.startsWith(url);
+    },
+    [location.pathname]
+  );
+
   return (
     <Root>
       <FlexBox justifyContent="space-between" alignItems="center">
@@ -98,7 +111,7 @@ const Nav = () => {
                   <Link
                     key={link.url}
                     href={link.url}
-                    className={link.url === location.pathname ? "active" : ""}
+                    className={isActive(link.url) ? "active" : ""}
                   >
                     {link.label}
                   </Link>
