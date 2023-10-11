@@ -4,6 +4,9 @@ import { device } from "utils/device";
 import shoesImg from "assets/images/placeholder-shoes-dior.jpg";
 import whiteSneakerImg from "assets/images/placeholder-whitesneaker.jpg";
 import modelImg from "assets/images/placeholder-model.jpg";
+import { ScrollContainer } from "react-indiana-drag-scroll";
+import { useMemo } from "react";
+import useStore from "hooks/useStore";
 
 const Root = styled.div`
   padding: 130px 0 130px 80px;
@@ -20,16 +23,17 @@ const Root = styled.div`
 `;
 
 const HScroller = styled.div`
-  display: flex;
+  display: inline-flex;
   gap: 90px;
-  height: 100%;
-  overflow-x: auto;
+  height: calc(100vh - 260px);
   padding-right: 80px;
   @media ${device.tablet} {
     flex-direction: column;
     overflow-x: hidden;
     gap: 30px;
     padding-right: 0;
+    margin-right: 0;
+    height: -webkit-fill-available;
   }
 `;
 
@@ -130,11 +134,17 @@ const RightGradient = styled.div`
     rgba(0, 0, 0, 0.01) 25%,
     rgba(0, 0, 0, 0.8) 75%
   );
+
+  @media ${device.tablet} {
+    display: none;
+  }
 `;
 
 const AboutMain = () => {
-  return (
-    <Root className="full">
+  const { store } = useStore();
+
+  const container = useMemo(() => {
+    return (
       <HScroller>
         <Part1>
           <PageMarker>About 010 [0-Ten]</PageMarker>
@@ -205,6 +215,16 @@ const AboutMain = () => {
         </Part4>
         <RightGradient />
       </HScroller>
+    );
+  }, []);
+
+  return (
+    <Root className="full">
+      {store.isTablet ? (
+        container
+      ) : (
+        <ScrollContainer>{container}</ScrollContainer>
+      )}
     </Root>
   );
 };

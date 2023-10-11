@@ -5,10 +5,13 @@ import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
+import "react-indiana-drag-scroll/dist/style.css";
+
 const NewsPage = lazy(() => import("pages/NewsPage"));
 const AboutPage = lazy(() => import("pages/AboutPage"));
 const AboutMainPage = lazy(() => import("pages/AboutMainPage"));
 const BenefitsPage = lazy(() => import("pages/BenefitsPage"));
+const TeamsPage = lazy(() => import("pages/TeamsPage"));
 
 function App() {
   return (
@@ -22,6 +25,7 @@ function App() {
                 <Route path="" element={<AboutPage />} />
                 <Route path="main" element={<AboutMainPage />} />
                 <Route path="benefits" element={<BenefitsPage />} />
+                <Route path="team" element={<TeamsPage />} />
               </Route>
             </Routes>
           </Suspense>
