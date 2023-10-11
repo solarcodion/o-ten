@@ -8,6 +8,7 @@ import { useCallback, useState } from "react";
 import FullscreenNav from "./FullscreenNav";
 import useStore from "hooks/useStore";
 import { device } from "utils/device";
+import { Link as RRDLink } from "react-router-dom";
 
 const Root = styled.div`
   padding: 50px 40px;
@@ -41,7 +42,7 @@ const MenuIcon = styled.img`
   }
 `;
 
-const Link = styled.a`
+const Link = styled(RRDLink)`
   font-size: 16px;
   position: relative;
   text-decoration: none;
@@ -88,7 +89,6 @@ const Nav = () => {
 
   const isActive = useCallback(
     (url: string) => {
-      console.log("23", url, location.pathname);
       if (!url) return false;
       if (url === "/") {
         if (location.pathname === "/") return true;
@@ -110,7 +110,7 @@ const Nav = () => {
                 return (
                   <Link
                     key={link.url}
-                    href={link.url}
+                    to={link.url}
                     className={isActive(link.url) ? "active" : ""}
                   >
                     {link.label}
