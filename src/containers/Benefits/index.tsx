@@ -6,7 +6,6 @@ import BenefitCard from "./BenefitCard";
 import useStore from "hooks/useStore";
 import { Carousel } from "components/Carousel";
 import { useCallback, useState } from "react";
-import { EmblaCarouselType } from "embla-carousel-react";
 
 const Root = styled.div`
   padding: 130px 80px;
