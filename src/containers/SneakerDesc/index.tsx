@@ -2,6 +2,7 @@ import { PageTitle, Text } from "components/basic";
 import { styled } from "styled-components";
 import { device } from "utils/device";
 import shoesImg from "assets/images/sneaker-intro-2.png";
+import { FlexBox } from "components/basic/Box";
 
 const Root = styled.div`
   padding: 130px 0 130px 80px;
@@ -66,6 +67,8 @@ const Left = styled.div`
 
 const Img = styled.img`
   width: 90%;
+  max-height: 80%;
+  object-fit: contain;
 `;
 
 const SneakerDesc = () => {
@@ -92,7 +95,9 @@ const SneakerDesc = () => {
             customization, where colours & materials can be added step-by-step.
           </Text>
         </Left>
-        <Img src={shoesImg} alt="" />
+        <FlexBox justifyContent="flex-start" alignItems="center">
+          <Img src={shoesImg} alt="" />
+        </FlexBox>
       </Container>
     </Root>
   );
