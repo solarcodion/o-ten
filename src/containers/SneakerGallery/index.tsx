@@ -3,7 +3,6 @@ import { device } from "utils/device";
 import productImg1 from "assets/images/top-view.jpg";
 import productImg2 from "assets/images/detail.jpg";
 import productImg3 from "assets/images/detail2.jpg";
-import { Box } from "components/basic/Box";
 
 const Root = styled.div`
   padding: 130px 80px;
