@@ -7,6 +7,7 @@ import Clickable from "./Clickable";
 import oxImg from "assets/images/logo/black/o-ten-icon.svg";
 import useStore from "hooks/useStore";
 import { device } from "utils/device";
+import { useCallback } from "react";
 
 const Root = styled.div`
   background-color: ${(props) => props.theme.colors.secondaryBg};
@@ -101,6 +102,18 @@ const FullscreenNav: React.FC<Props> = ({ onClose }) => {
   const theme = useTheme();
   const { store } = useStore();
 
+  const isActive = useCallback(
+    (url: string) => {
+      if (!url) return false;
+      if (url === "/") {
+        if (location.pathname === "/") return true;
+        return false;
+      }
+      return location.pathname.startsWith(url);
+    },
+    [location.pathname]
+  );
+
   return (
     <Root>
       <LogoBg src={oxImg} alt="logo" />
@@ -116,9 +129,7 @@ const FullscreenNav: React.FC<Props> = ({ onClose }) => {
             <Link
               key={link.url}
               to={link.url}
-              className={
-                link.url === location.pathname ? "active main" : "main"
-              }
+              className={isActive(link.url) ? "active main" : "main"}
             >
               {link.label}
             </Link>

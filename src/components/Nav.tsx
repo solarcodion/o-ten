@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { FlexBox } from "./basic/Box";
-import logoImg from "assets/images/logo/white/o-ten o.svg";
-import logoBlackImg from "assets/images/logo/black/o-ten o.svg";
+import logoImg from "assets/images/logo/white/o-ten-o.svg";
+import logoBlackImg from "assets/images/logo/black/o-ten-o.svg";
 import { useLocation } from "react-router-dom";
 import { MENU_ITEMS } from "../constants";
 import { useCallback, useContext, useState } from "react";
