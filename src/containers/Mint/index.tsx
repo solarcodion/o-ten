@@ -3,7 +3,6 @@ import { styled } from "styled-components";
 import { device } from "utils/device";
 import shoesImg from "assets/images/placeholder-shoes-dior.jpg";
 import whiteSneakerImg from "assets/images/placeholder-whitesneaker.jpg";
-import modelImg from "assets/images/placeholder-model.jpg";
 import { ScrollContainer } from "react-indiana-drag-scroll";
 import { useMemo } from "react";
 import useStore from "hooks/useStore";
@@ -106,19 +105,6 @@ const Part3 = styled.div`
     img {
       width: 100%;
     }
-  }
-`;
-
-const Part4 = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  min-width: 400px;
-  align-self: center;
-
-  @media ${device.tablet} {
-    width: 100%;
-    min-width: unset;
   }
 `;
 

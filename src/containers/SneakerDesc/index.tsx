@@ -1,8 +1,7 @@
-import { PageMarker, PageTitle, Text } from "components/basic";
+import { PageTitle, Text } from "components/basic";
 import { styled } from "styled-components";
 import { device } from "utils/device";
 import shoesImg from "assets/images/sneaker-intro-2.png";
-import useStore from "hooks/useStore";
 
 const Root = styled.div`
   padding: 130px 0 130px 80px;
@@ -70,8 +69,6 @@ const Img = styled.img`
 `;
 
 const SneakerDesc = () => {
-  const { store } = useStore();
-
   return (
     <Root className="full">
       <Container>
