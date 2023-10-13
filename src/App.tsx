@@ -25,7 +25,7 @@ function App() {
     <CustomThemeProvider>
       <StoreProvider>
         <DialogProvider>
-          <Suspense fallback={<div>not found</div>}>
+          <Suspense fallback={<div></div>}>
             <Routes>
               <Route path="" element={<NewsPage />} />
               <Route path="/about" element={<AboutRoute />}>
