@@ -1,8 +1,12 @@
 import AboutIntro from "containers/AboutIntro";
-import { WithAppbar } from "layouts/WithAppbar";
+import WithAppbar from "layouts/WithAppbar";
 
 const AboutPage = () => {
-  return <AboutIntro />;
+  return (
+    <WithAppbar>
+      <AboutIntro />
+    </WithAppbar>
+  );
 };
 
-export default WithAppbar(AboutPage);
+export default AboutPage;

@@ -1,8 +1,12 @@
 import SneakerStart1 from "containers/SneakerStart1";
-import { WithAppbar } from "layouts/WithAppbar";
+import WithAppbar from "layouts/WithAppbar";
 
 const SneakerStart1Page = () => {
-  return <SneakerStart1 />;
+  return (
+    <WithAppbar>
+      <SneakerStart1 />
+    </WithAppbar>
+  );
 };
 
-export default WithAppbar(SneakerStart1Page);
+export default SneakerStart1Page;

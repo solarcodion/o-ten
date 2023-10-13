@@ -10,7 +10,7 @@ import { device } from "utils/device";
 
 const Root = styled.div`
   background-color: ${(props) => props.theme.colors.secondaryBg};
-  padding: 50px;
+  padding: 50px 40px;
   position: fixed;
   top: 0;
   left: 0;

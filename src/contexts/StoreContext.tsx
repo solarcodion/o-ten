@@ -41,7 +41,6 @@ export const StoreProvider: React.FC<Props> = ({ children }) => {
     const isMobile = width <= SIZE.mobile;
     const isTablet = width <= SIZE.tablet;
     const viewPort = { width, height: window.innerHeight };
-
     setStore((store) => ({
       ...store,
       viewPort,
@@ -51,6 +50,7 @@ export const StoreProvider: React.FC<Props> = ({ children }) => {
   }, []);
 
   useEffect(() => {
+    onResize();
     window.addEventListener("resize", onResize);
 
     return () => window.removeEventListener("resize", onResize);

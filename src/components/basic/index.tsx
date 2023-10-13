@@ -41,3 +41,13 @@ export const Text = styled.div`
     font-size: 14px;
   }
 `;
+
+export const SmallText = styled.div`
+  font-size: 12px;
+  color: ${(props) => props.theme.colors.white};
+  line-height: 140%;
+
+  @media ${device.mobile} {
+    font-size: 10px;
+  }
+`;

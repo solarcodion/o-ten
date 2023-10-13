@@ -1,4 +1,4 @@
-import { WithAppbar } from "layouts/WithAppbar";
+import WithAppbar from "layouts/WithAppbar";
 import { styled } from "styled-components";
 import img1 from "assets/images/placeholder-woman-w-sneakers.jpg";
 import img2 from "assets/images/placeholder-group.jpg";
@@ -142,34 +142,36 @@ const Text = styled.div`
 
 const NewsPage = () => {
   return (
-    <Root className="full">
-      <Container>
-        <NewsBadge>Latest news</NewsBadge>
-        <Gallery>
-          <div className="gallery-1">
-            <Text>The latest news article preview always goes here</Text>
-          </div>
-          <div className="gallery-2">
-            <Text>The second newest article is located in this spot</Text>
-          </div>
-          <div className="gallery-3">
-            <Text>Older articles are shown in the smaller fields</Text>
-          </div>
-          <div className="gallery-4">
-            <Text>Older articles are shown in the smaller fields</Text>
-          </div>
-        </Gallery>
-        <GridRow>
-          <StyledYellowPane>
-            TIME UNTIL MINT: <span style={{ marginLeft: "20px" }}></span>100 :
-            20 : 18 : 42
-          </StyledYellowPane>
-          <StyledYellowPane>An ethereum-based project</StyledYellowPane>
-          <StyledYellowPane>Older news articles</StyledYellowPane>
-        </GridRow>
-      </Container>
-    </Root>
+    <WithAppbar>
+      <Root className="full">
+        <Container>
+          <NewsBadge>Latest news</NewsBadge>
+          <Gallery>
+            <div className="gallery-1">
+              <Text>The latest news article preview always goes here</Text>
+            </div>
+            <div className="gallery-2">
+              <Text>The second newest article is located in this spot</Text>
+            </div>
+            <div className="gallery-3">
+              <Text>Older articles are shown in the smaller fields</Text>
+            </div>
+            <div className="gallery-4">
+              <Text>Older articles are shown in the smaller fields</Text>
+            </div>
+          </Gallery>
+          <GridRow>
+            <StyledYellowPane>
+              TIME UNTIL MINT: <span style={{ marginLeft: "20px" }}></span>100 :
+              20 : 18 : 42
+            </StyledYellowPane>
+            <StyledYellowPane>An ethereum-based project</StyledYellowPane>
+            <StyledYellowPane>Older news articles</StyledYellowPane>
+          </GridRow>
+        </Container>
+      </Root>
+    </WithAppbar>
   );
 };
 
-export default WithAppbar(NewsPage);
+export default NewsPage;

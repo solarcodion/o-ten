@@ -1,8 +1,12 @@
 import Teams from "containers/Teams";
-import { WithAppbar } from "layouts/WithAppbar";
+import WithAppbar from "layouts/WithAppbar";
 
 const TeamsPage = () => {
-  return <Teams />;
+  return (
+    <WithAppbar>
+      <Teams />
+    </WithAppbar>
+  );
 };
 
-export default WithAppbar(TeamsPage);
+export default TeamsPage;

@@ -1,25 +1,28 @@
 import { useCallback, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getNextLink, getPrevLink } from "utils";
+import useStore from "./useStore";
 
-const WHEEL_DELTA = 100;
+const WHEEL_DELTA = 70;
 
 const useFullPageSlide = (urls: string[]) => {
   const ref = useRef(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const { store } = useStore();
 
   const handleScroll = useCallback(
     (event: any) => {
       if (ref.current) return;
-      if (event.wheelDeltaY < -1 * WHEEL_DELTA) {
+      const delta = store.isTablet ? event.wheelDeltaX : event.wheelDeltaY;
+      if (delta < -1 * WHEEL_DELTA) {
         ref.current = true;
         const nextLink = getNextLink(urls, location.pathname);
         if (nextLink) navigate(nextLink);
         setTimeout(() => (ref.current = false), 1000);
         return;
       }
-      if (event.wheelDeltaY > WHEEL_DELTA) {
+      if (delta > WHEEL_DELTA) {
         ref.current = true;
         const nextLink = getPrevLink(urls, location.pathname);
         if (nextLink) navigate(nextLink);
@@ -27,7 +30,7 @@ const useFullPageSlide = (urls: string[]) => {
         return;
       }
     },
-    [location.pathname, navigate, urls]
+    [location.pathname, navigate, store.isTablet, urls]
   );
 
   useEffect(() => {

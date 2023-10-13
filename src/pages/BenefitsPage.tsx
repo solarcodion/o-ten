@@ -1,8 +1,12 @@
 import Benefits from "containers/Benefits";
-import { WithAppbar } from "layouts/WithAppbar";
+import WithAppbar from "layouts/WithAppbar";
 
 const BenefitsPage = () => {
-  return <Benefits />;
+  return (
+    <WithAppbar>
+      <Benefits />
+    </WithAppbar>
+  );
 };
 
-export default WithAppbar(BenefitsPage);
+export default BenefitsPage;
