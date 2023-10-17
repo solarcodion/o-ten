@@ -1,5 +1,5 @@
 import { Box, FlexBox } from "components/basic/Box";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { styled } from "styled-components";
 import {
   FaLinkedinIn,
@@ -126,10 +126,10 @@ const MemberCard: React.FC<Props> = ({
             <Name>
               {name.split(" ").map((nn) => {
                 return (
-                  <>
+                  <Fragment key={nn}>
                     {nn}
                     <br />
-                  </>
+                  </Fragment>
                 );
               })}
             </Name>

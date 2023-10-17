@@ -124,11 +124,10 @@ const Part4 = styled.div`
 
 const RightGradient = styled.div`
   width: 180px;
-  height: calc(100% - 260px);
-  position: fixed;
+  height: 100%;
+  position: absolute;
   right: 0;
-  top: 50vh;
-  transform: translate(0%, -50%);
+  top: 0;
   background: linear-gradient(
     89deg,
     rgba(0, 0, 0, 0.01) 25%,
@@ -145,76 +144,79 @@ const AboutMain = () => {
 
   const container = useMemo(() => {
     return (
-      <HScroller>
-        <Part1>
-          <PageMarker>About 010 [0-Ten]</PageMarker>
-          <PageTitle className="part1-title">
-            This is an introductionary text for the brand.
-          </PageTitle>
-          <Text className="part1-text">
-            Our love for sneakers grew over the years and so did our
-            expectations. We had enough of paying high-end prices for poorly
-            produced shoes somewhere on the other side of the planet, damaging
-            the environment and ruining the unique experience.
-            <br />
-            <br />
-            So we creatd our own.
-            <br />
-            <br />
-            Meet O-TEN - the first ever NFT project on the Ethereum blockchain
-            that can be exchanged for a physical pair of luxury, Italian made
-            sneakers. The project simultaneously taps into two enduring fixtures
-            of youth life - cutting-edge technology and sneaker fashion.
-          </Text>
-        </Part1>
-        <Img src={shoesImg} alt="" />
-        <Part2>
-          <PageTitle>Another headline goes here.</PageTitle>
-          <TwoColumn>
-            <Text>
-              At vero eos et accusamus et iusto odio dignissimos et ducimus qui
-              blanditiis praesentium voluptatum deleniti atque corrupti quos
-              dolores et quas molestias ut ipsa excepturi sint occaecati
-              cupiditate non provident, similique sunt in culpa qui officia
-              deserunt mollitia animi, id est laborum et dolorum fuga.
+      <>
+        <HScroller>
+          <Part1>
+            <PageMarker>About 010 [0-Ten]</PageMarker>
+            <PageTitle className="part1-title">
+              This is an introductionary text for the brand.
+            </PageTitle>
+            <Text className="part1-text">
+              Our love for sneakers grew over the years and so did our
+              expectations. We had enough of paying high-end prices for poorly
+              produced shoes somewhere on the other side of the planet, damaging
+              the environment and ruining the unique experience.
               <br />
-              <br /> Ut aut reiciendis voluptatibus maiores alias consequatur
-              aut perferendis doloribus asperiores repellat.
+              <br />
+              So we creatd our own.
+              <br />
+              <br />
+              Meet O-TEN - the first ever NFT project on the Ethereum blockchain
+              that can be exchanged for a physical pair of luxury, Italian made
+              sneakers. The project simultaneously taps into two enduring
+              fixtures of youth life - cutting-edge technology and sneaker
+              fashion.
             </Text>
+          </Part1>
+          <Img src={shoesImg} alt="" />
+          <Part2>
+            <PageTitle>Another headline goes here.</PageTitle>
+            <TwoColumn>
+              <Text>
+                At vero eos et accusamus et iusto odio dignissimos et ducimus
+                qui blanditiis praesentium voluptatum deleniti atque corrupti
+                quos dolores et quas molestias ut ipsa excepturi sint occaecati
+                cupiditate non provident, similique sunt in culpa qui officia
+                deserunt mollitia animi, id est laborum et dolorum fuga.
+                <br />
+                <br /> Ut aut reiciendis voluptatibus maiores alias consequatur
+                aut perferendis doloribus asperiores repellat.
+              </Text>
+              <Text>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+                quae ab illo inventore veritatis et quasi architecto beatae
+                vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
+                voluptas sit aspernatur aut odit aut fugit.
+              </Text>
+            </TwoColumn>
+          </Part2>
+          <Part3 style={{ gridGap: "14px" }}>
+            <Img src={whiteSneakerImg} alt="" />
+            <Img src={modelImg} alt="" />
+          </Part3>
+          <Part4>
             <Text>
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem
               accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
               quae ab illo inventore veritatis et quasi architecto beatae vitae
               dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-              aspernatur aut odit aut fugit.
+              aspernatur aut odit aut fugit sed ut perspiciatis unde omnis iste
+              natus error sit voluptatem accusantium doloremque laudantium,
+              totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et
+              quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+              ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+              <br />
+              <br />
+              At vero eos et accusamus et iusto odio dignissimos et ducimus qui
+              blanditiis praesentium voluptatum deleniti atque corrupti quos
+              dolores et quas molestias ut ipsa excepturi sint occaecati
+              cupiditate
             </Text>
-          </TwoColumn>
-        </Part2>
-        <Part3 style={{ gridGap: "14px" }}>
-          <Img src={whiteSneakerImg} alt="" />
-          <Img src={modelImg} alt="" />
-        </Part3>
-        <Part4>
-          <Text>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            quae ab illo inventore veritatis et quasi architecto beatae vitae
-            dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-            aspernatur aut odit aut fugit sed ut perspiciatis unde omnis iste
-            natus error sit voluptatem accusantium doloremque laudantium, totam
-            rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
-            voluptatem quia voluptas sit aspernatur aut odit aut fugit.
-            <br />
-            <br />
-            At vero eos et accusamus et iusto odio dignissimos et ducimus qui
-            blanditiis praesentium voluptatum deleniti atque corrupti quos
-            dolores et quas molestias ut ipsa excepturi sint occaecati
-            cupiditate
-          </Text>
-        </Part4>
+          </Part4>
+        </HScroller>
         <RightGradient />
-      </HScroller>
+      </>
     );
   }, []);
 
