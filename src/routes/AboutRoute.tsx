@@ -3,7 +3,13 @@ import useFullPageSlide from "hooks/useFullPageSlide";
 import useStore from "hooks/useStore";
 import { Outlet } from "react-router-dom";
 
-const urls = ["/about", "/about/main", "/about/benefits", "/about/team"];
+const urls = [
+  "/about",
+  "/about/main",
+  "/about/benefits",
+  "/about/team",
+  "/about/faq",
+];
 
 const AboutRoute = () => {
   const { store } = useStore();

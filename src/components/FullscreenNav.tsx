@@ -8,6 +8,7 @@ import oxImg from "assets/images/logo/black/o-ten-icon.svg";
 import useStore from "hooks/useStore";
 import { device } from "utils/device";
 import { useCallback } from "react";
+import { motion } from "framer-motion";
 
 const Root = styled.div`
   background-color: ${(props) => props.theme.colors.secondaryBg};
@@ -115,50 +116,56 @@ const FullscreenNav: React.FC<Props> = ({ onClose }) => {
   );
 
   return (
-    <Root>
-      <LogoBg src={oxImg} alt="logo" />
-      <FlexBox justifyContent="space-between" alignItems="center">
-        <div></div>
-        <Clickable onClick={onClose}>
-          <CloseIcon width={16} height={16} fill={theme.colors.bg} />
-        </Clickable>
-      </FlexBox>
-      <MenuContainer>
-        {MENU_ITEMS.map((link) => {
-          return (
-            <Link
-              key={link.url}
-              to={link.url}
-              className={isActive(link.url) ? "active main" : "main"}
-            >
-              {link.label}
-            </Link>
-          );
-        })}
-      </MenuContainer>
-      <FlexBox justifyContent="space-between" alignItems="center">
-        {!store.isMobile && (
-          <FlexBox alignItems="center" gap="20px">
-            {SOCIAL_LINKS.map((link) => {
-              return (
-                <ExternalLink href={link.url} key={link.url} target="_blank">
-                  {link.label}
-                </ExternalLink>
-              );
-            })}
-          </FlexBox>
-        )}
-        <FlexBox alignItems="center" gap="20px">
-          {FOOTER_LINKS.map((link) => {
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
+      <Root>
+        <LogoBg src={oxImg} alt="logo" />
+        <FlexBox justifyContent="space-between" alignItems="center">
+          <div></div>
+          <Clickable onClick={onClose}>
+            <CloseIcon width={16} height={16} fill={theme.colors.bg} />
+          </Clickable>
+        </FlexBox>
+        <MenuContainer>
+          {MENU_ITEMS.map((link) => {
             return (
-              <Link to={link.url} key={link.url}>
+              <Link
+                key={link.url}
+                to={link.url}
+                className={isActive(link.url) ? "active main" : "main"}
+              >
                 {link.label}
               </Link>
             );
           })}
+        </MenuContainer>
+        <FlexBox justifyContent="space-between" alignItems="center">
+          {!store.isMobile && (
+            <FlexBox alignItems="center" gap="20px">
+              {SOCIAL_LINKS.map((link) => {
+                return (
+                  <ExternalLink href={link.url} key={link.url} target="_blank">
+                    {link.label}
+                  </ExternalLink>
+                );
+              })}
+            </FlexBox>
+          )}
+          <FlexBox alignItems="center" gap="20px">
+            {FOOTER_LINKS.map((link) => {
+              return (
+                <Link to={link.url} key={link.url}>
+                  {link.label}
+                </Link>
+              );
+            })}
+          </FlexBox>
         </FlexBox>
-      </FlexBox>
-    </Root>
+      </Root>
+    </motion.div>
   );
 };
 

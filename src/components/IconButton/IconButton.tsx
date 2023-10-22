@@ -27,7 +27,7 @@ const Root = styled.div<{
 type Props = {
   width?: number | string;
   height?: number | string;
-  onClick: React.MouseEventHandler<HTMLDivElement>;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
   disabled?: boolean;
   children?: React.ReactNode;
 };
@@ -43,7 +43,7 @@ export const IconButton: React.FC<Props> = ({
   const handleClick = useCallback(
     (e: any) => {
       if (disabled) return;
-      onClick(e);
+      if (onClick) onClick(e);
     },
     [disabled, onClick]
   );

@@ -19,6 +19,8 @@ const SneakerMoreInfoPage = lazy(() => import("pages/SneakerMoreInfo"));
 const SneakerGalleryPage = lazy(() => import("pages/SneakerGalleryPage"));
 const SneakerDescPage = lazy(() => import("pages/SneakerDescPage"));
 const MintPage = lazy(() => import("pages/MintPage"));
+const FaqPage = lazy(() => import("pages/FaqPage"));
+const PressPage = lazy(() => import("pages/PressPage"));
 
 function App() {
   return (
@@ -33,6 +35,7 @@ function App() {
                 <Route path="main" element={<AboutMainPage />} />
                 <Route path="benefits" element={<BenefitsPage />} />
                 <Route path="team" element={<TeamsPage />} />
+                <Route path="faq" element={<FaqPage />} />
               </Route>
               <Route path="/sneaker" element={<SneakerRoute />}>
                 <Route path="" element={<SneakerStart1Page />} />
@@ -40,9 +43,14 @@ function App() {
                 <Route path="more" element={<SneakerMoreInfoPage />} />
                 <Route path="gallery" element={<SneakerGalleryPage />} />
                 <Route path="desc" element={<SneakerDescPage />} />
+                {/* <Route path="detail" element={} /> */}
               </Route>
+
               <Route path="/mint">
                 <Route path="" element={<MintPage />} />
+              </Route>
+              <Route path="/press">
+                <Route path="" element={<PressPage />} />
               </Route>
             </Routes>
           </Suspense>
