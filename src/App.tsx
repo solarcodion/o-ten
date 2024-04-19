@@ -18,9 +18,11 @@ const SneakerStart2Page = lazy(() => import("pages/SneakerStart2"));
 const SneakerMoreInfoPage = lazy(() => import("pages/SneakerMoreInfo"));
 const SneakerGalleryPage = lazy(() => import("pages/SneakerGalleryPage"));
 const SneakerDescPage = lazy(() => import("pages/SneakerDescPage"));
+const SneakerDetailPage = lazy(() => import("pages/SneakerDetailPage"));
 const MintPage = lazy(() => import("pages/MintPage"));
 const FaqPage = lazy(() => import("pages/FaqPage"));
 const PressPage = lazy(() => import("pages/PressPage"));
+const RoadmapPage = lazy(() => import("pages/RoadmapPage"));
 
 function App() {
   return (
@@ -43,7 +45,10 @@ function App() {
                 <Route path="more" element={<SneakerMoreInfoPage />} />
                 <Route path="gallery" element={<SneakerGalleryPage />} />
                 <Route path="desc" element={<SneakerDescPage />} />
-                {/* <Route path="detail" element={} /> */}
+                <Route path="detail" element={<SneakerDetailPage />} />
+              </Route>
+              <Route path="/roadmap">
+                <Route path="" element={<RoadmapPage />} />
               </Route>
 
               <Route path="/mint">

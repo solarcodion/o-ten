@@ -9,6 +9,7 @@ const urls = [
   "/sneaker/more",
   "/sneaker/gallery",
   "/sneaker/desc",
+  "/sneaker/detail",
 ];
 
 const SneakerRoute = () => {

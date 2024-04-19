@@ -27,6 +27,7 @@ type Props = {
   gap?: string;
   flexWrap?: string;
   alignSelf?: string;
+  position?: string;
   children?: React.ReactNode;
 };
 
@@ -59,6 +60,7 @@ export const Box: React.FC<Props> = styled.div`
   ${({ flexWrap }) =>
     flexWrap ? `flex-wrap: ${flexWrap};` : "flex-wrap: wrap;"}
   ${({ alignSelf }) => alignSelf && `align-self: ${alignSelf};`}
+  ${({ position }) => position && `position: ${position}`}
 `;
 
 export const FlexBox: React.FC<Props> = (props) => {

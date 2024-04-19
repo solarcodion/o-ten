@@ -15,29 +15,15 @@ type Props = {
   children?: React.ReactNode;
   theme?: "dark" | "light";
   style?: CSS.Properties;
-  linkColor?: string;
 };
-const WithAppbar: React.FC<Props> = ({
+const BlackWhiteLayout: React.FC<Props> = ({
   children,
   theme = "dark",
   style,
-  linkColor,
 }) => {
-  const { setTheme, currentTheme, setCurrentTheme } =
-    useContext(CustomThemeContext);
-
-  useEffect(() => {
-    if (currentTheme === theme) return;
-    if (theme === "light") setTheme(whiteTheme);
-    else {
-      setTheme(darkTheme);
-    }
-    setCurrentTheme(theme);
-  }, [setTheme, theme, currentTheme, setCurrentTheme]);
-
   return (
     <Root style={style}>
-      <Nav linkColor={linkColor} />
+      <Nav />
       <AnimatePresence>
         <motion.div
           initial={{ opacity: 0 }}
@@ -52,4 +38,4 @@ const WithAppbar: React.FC<Props> = ({
   );
 };
 
-export default WithAppbar;
+export default BlackWhiteLayout;

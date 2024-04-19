@@ -8,6 +8,7 @@ export const darkTheme = {
     cyan: "#25fcff",
     cyan010: "#272735",
     border: "#55555e",
+    grey: "#999999",
   },
 };
 
@@ -21,6 +22,7 @@ export const whiteTheme = {
     cyan: "#25fcff",
     cyan010: "#272735",
     border: "#b7b7b8",
+    grey: "#6e6e75",
   },
 };
 export default darkTheme;

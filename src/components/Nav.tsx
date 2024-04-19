@@ -82,7 +82,11 @@ const Link = styled(RRDLink)`
   }
 `;
 
-const Nav = () => {
+type Props = {
+  linkColor?: string;
+};
+
+const Nav: React.FC<Props> = ({ linkColor }) => {
   const location = useLocation();
   const [showFull, setShowFull] = useState<boolean>(false);
   const { store } = useStore();
@@ -120,6 +124,7 @@ const Nav = () => {
                     key={link.url}
                     to={link.url}
                     className={isActive(link.url) ? "active" : ""}
+                    style={{ color: linkColor || undefined }}
                   >
                     {link.label}
                   </Link>
@@ -129,7 +134,7 @@ const Nav = () => {
           )}
 
           <MenuIconContainer onClick={handleMenu}>
-            <MenuIcon />
+            <MenuIcon fill={linkColor || "currentColor"} />
           </MenuIconContainer>
         </FlexBox>
       </FlexBox>
