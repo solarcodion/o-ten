@@ -1,8 +1,5 @@
-import { PageTitle, Text } from "components/basic";
 import { styled } from "styled-components";
 import { device } from "utils/device";
-import shoesImg from "assets/images/sneaker-intro-2.png";
-import { Box, FlexBox } from "components/basic/Box";
 import { useState } from "react";
 import Timeline from "components/Timeline/Timeline";
 
@@ -33,17 +30,6 @@ const Container = styled.div`
     align-items: center;
     height: -webkit-fill-available;
   }
-`;
-
-const Img = styled.img`
-  width: 70%;
-  max-height: 70%;
-  object-fit: contain;
-`;
-
-const HR = styled.hr`
-  margin: 40px 0;
-  border-top: 1px solid #b7b7b8;
 `;
 
 const TabContainer = styled.div`
